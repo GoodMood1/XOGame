@@ -1,0 +1,79 @@
+﻿<Window x:Class="_20220209_tictactoe.MainWindow"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:local="clr-namespace:_20220209_tictactoe"
+        mc:Ignorable="d"
+        Title="TicTacToe" Height="350" Width="350">
+
+    <Window.Resources>
+        <ResourceDictionary Source="MainStyles.xaml"/>
+    </Window.Resources>
+
+    <Grid>
+        <Grid.RowDefinitions>
+            <RowDefinition Height="20"/>
+            <RowDefinition Height="*"/>
+            <RowDefinition Height="20"/>
+        </Grid.RowDefinitions>
+        
+        <Menu Grid.Row="0">
+            <MenuItem Header="Game">
+                <MenuItem x:Name="menuCreateGame" Header="Create new game" Click="menuCreateGame_Click"/>
+                <MenuItem x:Name="menuConnectToGame" Header="Connect to game" Click="menuConnectToGame_Click"/>
+                <MenuItem x:Name="menuExit" Header="Exit" Click="menuExit_Click"/>
+            </MenuItem>
+        </Menu>
+
+        <Grid Grid.Row="1" x:Name="field" Margin="40">
+            <Grid.RowDefinitions>
+                <RowDefinition/>
+                <RowDefinition/>
+                <RowDefinition/>
+            </Grid.RowDefinitions>
+            <Grid.ColumnDefinitions>
+                <ColumnDefinition/>
+                <ColumnDefinition/>
+                <ColumnDefinition/>
+            </Grid.ColumnDefinitions>
+
+            <Border Grid.Row="0" Grid.Column="0" Style="{StaticResource BorderStyle}">
+                <TextBlock x:Name="C0" Style="{StaticResource CellStyle}" Text="{Binding FieldCollection[0]}" MouseLeftButtonDown="MouseLeftButtonDownHandler"/>
+            </Border>
+            <Border Grid.Row="0" Grid.Column="1" Style="{StaticResource BorderStyle}">
+                <TextBlock x:Name="C1" Style="{StaticResource CellStyle}" Text="{Binding FieldCollection[1]}" MouseLeftButtonDown="MouseLeftButtonDownHandler"/>
+            </Border>
+            <Border Grid.Row="0" Grid.Column="2" Style="{StaticResource BorderStyle}">
+                <TextBlock x:Name="C2" Style="{StaticResource CellStyle}" Text="{Binding FieldCollection[2]}" MouseLeftButtonDown="MouseLeftButtonDownHandler"/>
+            </Border>
+
+            <Border Grid.Row="1" Grid.Column="0" Style="{StaticResource BorderStyle}">
+                <TextBlock x:Name="C3" Style="{StaticResource CellStyle}" Text="{Binding FieldCollection[3]}" MouseLeftButtonDown="MouseLeftButtonDownHandler"/>
+            </Border>
+            <Border Grid.Row="1" Grid.Column="1" Style="{StaticResource BorderStyle}">
+                <TextBlock x:Name="C4" Style="{StaticResource CellStyle}" Text="{Binding FieldCollection[4]}" MouseLeftButtonDown="MouseLeftButtonDownHandler"/>
+            </Border>
+            <Border Grid.Row="1" Grid.Column="2" Style="{StaticResource BorderStyle}">
+                <TextBlock x:Name="C5" Style="{StaticResource CellStyle}" Text="{Binding FieldCollection[5]}" MouseLeftButtonDown="MouseLeftButtonDownHandler"/>
+            </Border>
+
+            <Border Grid.Row="2" Grid.Column="0" Style="{StaticResource BorderStyle}">
+                <TextBlock x:Name="C6" Style="{StaticResource CellStyle}" Text="{Binding FieldCollection[6]}" MouseLeftButtonDown="MouseLeftButtonDownHandler"/>
+            </Border>
+            <Border Grid.Row="2" Grid.Column="1" Style="{StaticResource BorderStyle}">
+                <TextBlock x:Name="C7" Style="{StaticResource CellStyle}" Text="{Binding FieldCollection[7]}" MouseLeftButtonDown="MouseLeftButtonDownHandler"/>
+            </Border>
+            <Border Grid.Row="2" Grid.Column="2" Style="{StaticResource BorderStyle}">
+                <TextBlock x:Name="C8" Style="{StaticResource CellStyle}" Text="{Binding FieldCollection[8]}" MouseLeftButtonDown="MouseLeftButtonDownHandler"/>
+            </Border>
+        </Grid>
+
+        <Grid Grid.Row="2">
+            <TextBlock x:Name="txtUserName" Text="{Binding UserName}" HorizontalAlignment="Left" Margin="20, 0"/>
+            <TextBlock x:Name="txtEnemyName" Text="{Binding EnemyName}" HorizontalAlignment="Right" Margin="20, 0"/>
+        </Grid>
+        
+    </Grid>
+    
+</Window>
